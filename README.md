@@ -1,5 +1,8 @@
 # rbx-datastore-light
 
+Installation: 
+```npm i rbx-datastore-light```
+
 Example use: 
 ```typescript
 import { DataStore } from "rbx-datastore-light"
