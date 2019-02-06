@@ -1,0 +1,24 @@
+{
+  "name": "rbx-datastore-light",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dog2puppy/rbx-datastore-light.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dog2puppy/rbx-datastore-light/issues"
+  },
+  "homepage": "https://github.com/Dog2puppy/rbx-datastore-light#readme",
+  "dependencies": {
+    "rbx-services": "^1.0.18",
+    "rbx-types": "^1.0.117"
+  }
+}
