@@ -1,8 +1,9 @@
 {
   "name": "rbx-datastore-light",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Lightweight OOP package for data stores.",
+  "main": "out/main.lua",
+  "typings": "out/main.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,8 +12,8 @@
     "url": "git+https://github.com/Dog2puppy/rbx-datastore-light.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Dog2puppy",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Dog2puppy/rbx-datastore-light/issues"
   },
