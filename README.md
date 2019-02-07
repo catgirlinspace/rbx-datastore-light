@@ -1,5 +1,7 @@
 # rbx-datastore-light
 
+[![NPM](https://nodei.co/npm/rbx-datastore-light.png)](https://npmjs.org/package/rbx-datastore-light)
+
 Installation: 
 ```npm i rbx-datastore-light```
 
