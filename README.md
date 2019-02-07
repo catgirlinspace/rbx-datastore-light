@@ -7,7 +7,7 @@ Example use:
 ```typescript
 import { DataStore } from "rbx-datastore-light"
 
-let MainStore = new DataStore("Main", "MyScope")
+let MainStore = new DataStore<string>("Main", "MyScope")
 
 MainStore.set("hello", "hi")
 MainStore.get("hello") // hi
