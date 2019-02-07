@@ -2,7 +2,7 @@ import { DataStoreService } from "rbx-services";
 
 let maxRetries = 6
 
-export class DataStore {
+export class DataStore<T> {
   private instance: GlobalDataStore
   constructor (public readonly store: string, public readonly scope: string) {
     this.instance = DataStoreService.GetDataStore(store, scope)
@@ -13,10 +13,10 @@ export class DataStore {
    * @param key Key to use in GetAsync call
    * @returns Data from the key
    */
-  public get(key: string) {
+  public get(key: string): T | undefined {
     let retries = 0
     let success = false
-    let result
+    let result: unknown
     while (retries <= maxRetries && success === false) {
       try {
         result = this.instance.GetAsync(key)
@@ -26,11 +26,8 @@ export class DataStore {
         result = err
       }
     }
-    if (success === true) {
-      return result
-    } else {
-      error("Error in DataStore.get", result)
-    }
+    assert(success, `Error in DataStore.get: ${result}`)
+    return result as T
   }
   /**
    * set
@@ -38,10 +35,10 @@ export class DataStore {
    * @param key Key to set
    * @param data Data to set the key to
    */
-  public set(key: string, data: any) {
+  public set(key: string, data: T) {
     let retries = 0
     let success = false
-    let result
+    let result: unknown
     while (retries <= maxRetries && success === false) {
       try {
         result = this.instance.SetAsync(key, data)
@@ -51,11 +48,7 @@ export class DataStore {
         result = err
       }
     }
-    if (success === true) {
-      return result
-    } else {
-      error("Error in DataStore.set", result)
-    }
+    assert(success, `Error in DataStore.set: ${result}`)
   }
   /**
    * set
@@ -65,7 +58,7 @@ export class DataStore {
   public remove(key: string) {
     let retries = 0
     let success = false
-    let result
+    let result: unknown
     while (retries <= maxRetries && success === false) {
       try {
         result = this.instance.RemoveAsync(key)
@@ -75,10 +68,6 @@ export class DataStore {
         result = err
       }
     }
-    if (success === true) {
-      return result
-    } else {
-      error("Error in DataStore.remove", result)
-    }
+    assert(success, `Error in DataStore.remove: ${result}`)
   }
 }
