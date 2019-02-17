@@ -4,8 +4,12 @@ let maxRetries = 6
 
 export class DataStore<T> {
   private instance: GlobalDataStore
-  constructor (public readonly store: string, public readonly scope: string) {
-    this.instance = DataStoreService.GetDataStore(store, scope)
+  constructor (public readonly store: string, public readonly scope?: string) {
+    if (scope) {
+      this.instance = DataStoreService.GetDataStore(store, scope)
+    } else {
+      this.instance = DataStoreService.GetDataStore(store)
+    }
   }
   /**
    * get
