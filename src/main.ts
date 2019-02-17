@@ -1,4 +1,4 @@
-import { DataStoreService } from "rbx-services";
+import { DataStoreService } from "rbx-services"
 
 let maxRetries = 6
 

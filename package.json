@@ -1,6 +1,6 @@
 {
   "name": "rbx-datastore-light",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Lightweight OOP package for data stores.",
   "main": "out/main.lua",
   "typings": "out/main.d.ts",
@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/Dog2puppy/rbx-datastore-light#readme",
   "dependencies": {
-    "rbx-services": "^1.0.18",
-    "rbx-types": "^1.0.117"
+    "rbx-services": "^1.0.20",
+    "rbx-types": "^1.0.137"
   }
 }
