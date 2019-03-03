@@ -1,10 +1,8 @@
 import { DataStoreService } from "rbx-services"
 
-let maxRetries = 6
-
 export class DataStore<T> {
   private instance: GlobalDataStore
-  constructor (public readonly store: string, public readonly scope?: string) {
+  constructor (public readonly store: string, public readonly scope?: string, public readonly max: number = math.huge) {
     if (scope) {
       this.instance = DataStoreService.GetDataStore(store, scope)
     } else {
@@ -21,7 +19,7 @@ export class DataStore<T> {
     let retries = 0
     let success = false
     let result: unknown
-    while (retries <= maxRetries && success === false) {
+    while (retries <= this.max && success === false) {
       try {
         result = this.instance.GetAsync(key)
         success = true
@@ -43,7 +41,7 @@ export class DataStore<T> {
     let retries = 0
     let success = false
     let result: unknown
-    while (retries <= maxRetries && success === false) {
+    while (retries <= this.max && success === false) {
       try {
         result = this.instance.SetAsync(key, data)
         success = true
@@ -63,7 +61,7 @@ export class DataStore<T> {
     let retries = 0
     let success = false
     let result: unknown
-    while (retries <= maxRetries && success === false) {
+    while (retries <= this.max && success === false) {
       try {
         result = this.instance.RemoveAsync(key)
         success = true
