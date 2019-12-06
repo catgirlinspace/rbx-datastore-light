@@ -11,7 +11,7 @@ export class DataStore<T> {
   }
   /**
    * get
-   * Runs a GetAsync wuth automatic retry. Will throw if request fails. 
+   * Runs GetAsync wuth automatic retry. Will throw if request fails. 
    * @param key Key to use in GetAsync call
    * @returns Data from the key
    */
@@ -33,7 +33,7 @@ export class DataStore<T> {
   }
   /**
    * set
-   * Runs a SetAsync with automatic retry. Will throw if request fails. 
+   * Runs SetAsync with automatic retry. Will throw if request fails. 
    * @param key Key to set
    * @param data Data to set the key to
    */
@@ -53,8 +53,8 @@ export class DataStore<T> {
     assert(success, `Error in DataStore.set: ${result}`)
   }
   /**
-   * set
-   * Runs a RemoveAsync with automatic retry. Will throw if request fails. 
+   * remove
+   * Runs RemoveAsync with automatic retry. Will throw if request fails. 
    * @param key Key to remove
    */
   public remove(key: string) {
