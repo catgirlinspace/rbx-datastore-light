@@ -1,3 +1,11 @@
+type OpcallResult<T> = {
+  success: true;
+  value: T;
+} | {
+  success: false;
+  error: string;
+}
+
 import { DataStoreService } from "@rbxts/services"
 
 export class DataStore<T> {
@@ -17,19 +25,17 @@ export class DataStore<T> {
    */
   public get(key: string): T | undefined {
     let retries = 0
-    let success = false
-    let result: unknown
-    while (retries <= this.max && success === false) {
-      try {
-        result = this.instance.GetAsync(key)
-        success = true
-      } catch(err) {
-        retries++
-        result = err
-      }
+    let result: OpcallResult<T | undefined>
+    do {
+      result = opcall(() => {
+        return this.instance.GetAsync(key)
+      })
+      retries++
+    } while (retries <= this.max && !result.success);
+    if (!result.success) {
+      error(`Error in DataStore.get: ${result}`)
     }
-    assert(success, `Error in DataStore.get: ${result}`)
-    return result as T
+    return result.value
   }
   /**
    * set
@@ -39,37 +45,34 @@ export class DataStore<T> {
    */
   public set(key: string, data: T) {
     let retries = 0
-    let success = false
-    let result: unknown
-    while (retries <= this.max && success === false) {
-      try {
-        result = this.instance.SetAsync(key, data)
-        success = true
-      } catch(err) {
-        retries++
-        result = err
-      }
+    let result: OpcallResult<void>
+    do {
+      result = opcall(() => {
+        return this.instance.SetAsync(key, data)
+      })
+      retries++
+    } while (retries <= this.max && !result.success);
+    if (!result.success) {
+      error(`Error in DataStore.get: ${result}`)
     }
-    assert(success, `Error in DataStore.set: ${result}`)
   }
   /**
    * remove
    * Runs RemoveAsync with automatic retry. Will throw if request fails. 
    * @param key Key to remove
    */
-  public remove(key: string) {
+  public remove(key: string): T | undefined {
     let retries = 0
-    let success = false
-    let result: unknown
-    while (retries <= this.max && success === false) {
-      try {
-        result = this.instance.RemoveAsync(key)
-        success = true
-      } catch(err) {
-        retries++
-        result = err
-      }
+    let result: OpcallResult<T | undefined>
+    do {
+      result = opcall(() => {
+        return this.instance.RemoveAsync(key)
+      })
+      retries++
+    } while (retries <= this.max && !result.success);
+    if (!result.success) {
+      error(`Error in DataStore.get: ${result}`)
     }
-    assert(success, `Error in DataStore.remove: ${result}`)
+    return result.value
   }
 }
