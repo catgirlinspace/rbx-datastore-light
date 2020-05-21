@@ -7,7 +7,7 @@
 		"noLib": true,
 		"strict": true,
 		"target": "es6",
-		"types": [ "rbx-types" ],
+		"typeRoots": [ "node_modules/@rbxts" ],
 
 		// required, configurable
 		"rootDir": "src",

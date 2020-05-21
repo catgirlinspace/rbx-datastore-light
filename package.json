@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/Dog2puppy/rbx-datastore-light#readme",
   "dependencies": {
-    "rbx-services": "^1.0.20",
-    "rbx-types": "^1.0.137"
+    "@rbxts/services": "^1.0.4",
+    "@rbxts/types": "^1.0.359"
   }
 }

@@ -1,4 +1,4 @@
-import { DataStoreService } from "rbx-services"
+import { DataStoreService } from "@rbxts/services"
 
 export class DataStore<T> {
   private instance: GlobalDataStore
