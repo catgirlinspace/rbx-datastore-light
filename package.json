@@ -1,5 +1,5 @@
 {
-  "name": "rbx-datastore-light",
+  "name": "@rbxts/datastore-light",
   "version": "1.2.0",
   "description": "Lightweight OOP package for data stores.",
   "main": "out/main.lua",

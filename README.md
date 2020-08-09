@@ -14,6 +14,19 @@ let MainStore = new DataStore<string>("Main", "MyScope", math.huge) // Creates a
 MainStore.set("hello", "hi")
 MainStore.get("hello") // hi
 MainStore.remove("hello")
+
+// or use promises
+// promises can be cancelled and will stop attempting on the next retry
+
+MainStore.setAsync("hello", "hi").then(() => {
+    return MainStore.getAsync("hello") // promise that resolves to "hi"
+}).then(() => {
+    return MainStore.removeAsync("hello")
+})
 ```
+
+Ordered data stores have 2 new APIs. 
+```ts
+
 
 # [API Reference](https://github.com/Dog2puppy/rbx-datastore-light/wiki)
