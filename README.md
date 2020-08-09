@@ -1,6 +1,6 @@
 # @rbxts/datastore-light
 
-[![NPM](https://nodei.co/npm/@rbxts/datastore-light.png)](https://npmjs.org/package/rbx-datastore-light)
+[![NPM](https://nodei.co/npm/@rbxts/datastore-light.png)](https://npmjs.org/package/@rbxts/datastore-light)
 
 Installation: 
 ```npm i @rbxts/datastore-light```
