@@ -25,8 +25,7 @@ MainStore.setAsync("hello", "hi").then(() => {
 })
 ```
 
-Ordered data stores have 2 new APIs. 
-```ts
+Ordered data stores have 2 new APIs. `getOrdered` and `getOrderedAsync` which function similarly to how they're documented on the Roblox Developer Hub. 
 
 
 # [API Reference](https://github.com/Dog2puppy/rbx-datastore-light/wiki)
